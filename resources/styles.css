@@ -1,0 +1,46 @@
+.background {
+  viewport-fill: fb-black;
+}
+
+text {
+  text-length: 99;
+}
+
+.week_diff_value {
+  text-anchor: middle; 
+  fill: black;
+  font-family: Colfax-Regular;
+  font-size: 30;
+}
+
+.week_diff_background {
+  fill: fb-aqua;
+}
+
+.week_number_label {
+  text-anchor: middle;
+  font-size: 30;
+  font-family: Colfax-Light;
+  fill: fb-aqua;
+}
+
+.week_number_digit {
+  text-anchor: middle;
+  font-size: 120;
+  font-family: Tungsten-Medium;
+  fill: white;
+}
+
+.week_start_end_day_name {
+  text-anchor: middle;
+  font-size: 30;
+  font-family: Colfax-Light;
+  fill: fb-aqua;
+}
+
+.week_start_end_day {
+  text-anchor: middle;
+  font-size: 35;
+  font-family: Colfax-Regular;
+  fill: white;
+}

@@ -1,0 +1,19 @@
+{
+  "fitbit": {
+    "appUUID": "d33414a8-f309-4438-aeee-d7dbc749420f",
+    "appType": "app",
+    "appDisplayName": "Week Number",
+    "iconFile": "resources/icon.png",
+    "wipeColor": "#009688",
+    "requestedPermissions": [],
+    "buildTargets": [
+      "higgs",
+      "meson"
+    ],
+    "i18n": {
+      "en": {
+        "name": "Week Number"
+      }
+    }
+  }
+}
