@@ -1,9 +1,9 @@
 # "Week Number" for Fitbit 
-Small (but yet powerfull!) application to show current and past/upcoming week number. 
+Small (but yet powerful!) application to show current and past/upcoming week number. 
 
 ![Application icon](/resources/icon.png "Application icon")
 
-Install the app on your Fitbit Ionic or Fitbit Versa from [Fitbit Gallery](https://gam.fitbit.com/gallery/app/d33414a8-f309-4438-aeee-d7dbc749420f).
+Install the app on your Fitbit Ionic or Fitbit Versa from [Fitbit Gallery](https://gam.fitbit.com/gallery/app/d33414a8-f309-4438-aeee-d7dbc749420f) (open the link on your phone).
 
 ## How it looks
 
@@ -11,10 +11,10 @@ Install the app on your Fitbit Ionic or Fitbit Versa from [Fitbit Gallery](https
 
 ## Development info
 
-This repo is an export from a [Fitbit Studio](https://studio.fitbit.com) project, which is quite limiting,
-because it cannot be directly imported back.
+This repo is an export from a [Fitbit Studio](https://studio.fitbit.com) project, what is quite limiting,
+because these exports cannot be directly imported back.
 So, there are no external dependencies, linters, bundlers and other JS-world 
-"must-have"s.
+tooling.
 
 ## Links
 
