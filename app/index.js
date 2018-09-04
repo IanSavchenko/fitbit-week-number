@@ -1,4 +1,5 @@
 import "../common/index.js";
+import './messaging';
 import document from "document";
 import haptics from "haptics";
 import touch from './touch';
