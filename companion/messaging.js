@@ -1,4 +1,4 @@
-import messaging from "messaging";
+import messaging from 'messaging';
 
 export let sendMessage = function({
   type,
@@ -13,4 +13,4 @@ export let sendMessage = function({
     // Send the data to peer as a message
     messaging.peerSocket.send(data);
   }
-}
+};

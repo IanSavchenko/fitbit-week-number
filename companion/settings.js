@@ -1,7 +1,7 @@
 import { sendMessage } from './messaging';
-import { settingsStorage } from "settings";
+import { settingsStorage } from 'settings';
 
-const FIRST_DAY_OF_WEEK_KEY = "firstDayOfWeek";
+const FIRST_DAY_OF_WEEK_KEY = 'firstDayOfWeek';
 
 export let setDefaultSettings = function() {    
   let firstDayOfWeek = settingsStorage.getItem(FIRST_DAY_OF_WEEK_KEY);
@@ -12,7 +12,7 @@ export let setDefaultSettings = function() {
         selected:[0] // Auto
       }));
   }
-}
+};
 
 export let fetchSettings = function() {
   let settings = {};
@@ -30,11 +30,11 @@ export let fetchSettings = function() {
   }
 
   return settings;
-}
+};
 
 export let sendSettings = function() {
   sendMessage({
     type: 'settings',
     detail: fetchSettings()
   });
-}
+};
