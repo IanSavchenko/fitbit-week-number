@@ -1,16 +1,16 @@
-import messaging from "messaging";
-import { settingsStorage } from "settings";
+import messaging from 'messaging';
+import { settingsStorage } from 'settings';
 import { sendSettings } from './settings';
 
-settingsStorage.onchange = function(evt) {
+settingsStorage.onchange = function() {
   sendSettings();
-}
+};
 
 messaging.peerSocket.onopen = function() {
   sendSettings();
-}
+};
 
 messaging.peerSocket.onerror = function(err) {
-  console.log("Connection error: " + err.code + " - " + err.message);
-}
+  console.log('Connection error: ' + err.code + ' - ' + err.message);
+};
 

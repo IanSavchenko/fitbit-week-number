@@ -1,7 +1,8 @@
 {
   "devDependencies": {
     "@fitbit/sdk": "~1.0.0",
-    "@fitbit/sdk-cli": "^1.0.0"
+    "@fitbit/sdk-cli": "^1.0.0",
+    "eslint": "^5.5.0"
   },
   "fitbit": {
     "appUUID": "d33414a8-f309-4438-aeee-d7dbc749420f",
@@ -22,6 +23,7 @@
   },
   "scripts": {
     "build": "fitbit-build",
-    "debug": "fitbit"
+    "debug": "fitbit",
+    "lint": "eslint --ext .js --ignore-path .eslintignore --fix ./"
   }
 }

@@ -1,4 +1,4 @@
-import { preferences } from "user-settings";
+import { preferences } from 'user-settings';
 const firstDayOfWeek = preferences.firstDayOfWeek;
 
 const DAYS = [
@@ -11,15 +11,15 @@ const MONTHS = [
 
 Date.prototype.toFullDayString = function() {
   return `${DAYS[this.getDay()]}, ${MONTHS[this.getMonth()]} ${this.getDate()}`;
-}
+};
 
 Date.prototype.toDayString = function() {
   return `${MONTHS[this.getMonth()]} ${this.getDate()}`;
-}
+};
 
 Date.prototype.toDayNameString = function() {
   return `${DAYS[this.getDay()]}`;
-}
+};
 
 Date.prototype.getWeek = function() {
   let weekMs = 1000 * 60 * 60 * 24 * 7;
@@ -38,7 +38,7 @@ Date.prototype.getWeek = function() {
   
   let weekNumber = 1 + Math.floor((this - firstWeekStart) / weekMs);
   return weekNumber;
-}
+};
 
 Date.prototype.getWeekStart = function() {
   let weekMs = 1000 * 60 * 60 * 24 * 7;
@@ -49,11 +49,11 @@ Date.prototype.getWeekStart = function() {
   firstWeekStart.setDate(1 + firstDayOfWeek - januaryFirst.getDay());
   
   return new Date(firstWeekStart.valueOf() + (weekNum - 1) * weekMs);
-}
+};
 
 Date.prototype.getWeekEnd = function() {
   let dayMs = 1000 * 60 * 60 * 24;
   
   let weekStart = this.getWeekStart(firstDayOfWeek); 
   return new Date(weekStart.valueOf() + 6 * dayMs);
-}
+};

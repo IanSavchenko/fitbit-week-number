@@ -1,16 +1,16 @@
-import document from "document";
+import document from 'document';
 
-const week_number_first = document.getElementById("week_number_first"),
-const week_number_second = document.getElementById("week_number_second");
+const week_number_first = document.getElementById('week_number_first');
+const week_number_second = document.getElementById('week_number_second');
       
-const week_diff = document.getElementById("week_diff");
-const week_diff_value = week_diff.getElementById("week_diff_value");
+const week_diff = document.getElementById('week_diff');
+const week_diff_value = week_diff.getElementById('week_diff_value');
 
-const week_start_day_name = document.getElementById("week_start_day_name");
-const week_end_day_name = document.getElementById("week_end_day_name");
+const week_start_day_name = document.getElementById('week_start_day_name');
+const week_end_day_name = document.getElementById('week_end_day_name');
 
-const week_start_day = document.getElementById("week_start_day");
-const week_end_day = document.getElementById("week_end_day");
+const week_start_day = document.getElementById('week_start_day');
+const week_end_day = document.getElementById('week_end_day');
 
 const up_triangle = document.getElementById('up_triangle');
 const down_triangle = document.getElementById('down_triangle');
@@ -46,10 +46,10 @@ export default {
     }
     
     if (value === 0 && weekDiffVisible) {
-      week_diff.animate("disable");
+      week_diff.animate('disable');
       weekDiffVisible = false;
     } else if (value != 0 && !weekDiffVisible) {
-      week_diff.animate("enable");
+      week_diff.animate('enable');
       weekDiffVisible = true;
     }
     
@@ -72,7 +72,7 @@ export default {
   
   
   set weekStart(value) {
-     if (!weekStartDayNameSet) {    
+    if (!weekStartDayNameSet) {    
       week_start_day_name.text = value.toDayNameString();
       weekStartDayNameSet = true;
     }

@@ -1,7 +1,7 @@
-import "../common/index.js";
+import '../common/index.js';
 import './messaging';
-import document from "document";
-import haptics from "haptics";
+import document from 'document';
+import haptics from 'haptics';
 import touch from './touch';
 import ui from './ui';
 
@@ -13,28 +13,28 @@ let updateUi = function() {
   ui.weekStart = currentWeek.getWeekStart();
   ui.weekEnd = currentWeek.getWeekEnd();  
   ui.weekDiff = weekDiff;
-}
+};
 
 let flipWeek = function(diff) {
-  haptics.vibration.start("bump");
+  haptics.vibration.start('bump');
   
   currentWeek.setDate(currentWeek.getDate() + 7*diff);
   weekDiff += diff;   
   
   setTimeout(updateUi, 0); 
-}
+};
 
 let onUp = function() {  
   if (weekDiff < 52) {
     flipWeek(+1);
   }  
-}
+};
 
 let onDown = function() {
   if (weekDiff > -52) {
     flipWeek(-1);
   }  
-}
+};
 
 let onKeyPress= function(e) {
   if (e.key === 'down') {
@@ -42,7 +42,7 @@ let onKeyPress= function(e) {
   } else if (e.key === 'up') {
     onUp();
   }  
-}
+};
 
 document.onkeypress = onKeyPress;
 touch.onFlickUp = onUp;
