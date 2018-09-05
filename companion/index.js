@@ -14,3 +14,4 @@ messaging.peerSocket.onerror = function(err) {
   console.log('Connection error: ' + err.code + ' - ' + err.message);
 };
 
+setDefaultSettings();

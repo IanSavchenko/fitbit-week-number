@@ -21,8 +21,8 @@ const touch_handler = document.getElementById('touch_handler');
 // improves visual performance of the app
 // especially, when animation is involved
 let weekDiffVisible = false;
-let weekStartDayNameSet = false;
-let weekEndDayNameSet = false;
+let _weekStartDayName;
+let _weekEndDayName;
 let canGoUp = true;
 let canGoDown = true;
 
@@ -72,9 +72,10 @@ export default {
   
   
   set weekStart(value) {
-    if (!weekStartDayNameSet) {    
-      week_start_day_name.text = value.toDayNameString();
-      weekStartDayNameSet = true;
+    let weekStartDayName = value.toDayNameString();
+    if (_weekStartDayName !== weekStartDayName) {    
+      week_start_day_name.text = weekStartDayName;
+      _weekStartDayName = weekStartDayName;
     }
   
     week_start_day.text = value.toDayString();
@@ -82,9 +83,10 @@ export default {
   
   
   set weekEnd(value) {
-    if (!weekEndDayNameSet) {
-      week_end_day_name.text = value.toDayNameString();
-      weekEndDayNameSet = true;
+    let weekEndDayName = value.toDayNameString();
+    if (_weekEndDayName !== weekEndDayName) {
+      week_end_day_name.text = weekEndDayName;
+      _weekEndDayName = weekEndDayName;
     }
         
     week_end_day.text = value.toDayString();

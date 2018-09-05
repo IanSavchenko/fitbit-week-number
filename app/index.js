@@ -1,17 +1,25 @@
-import '../common/index.js';
+import '../common/time-utils';
 import './messaging';
 import document from 'document';
 import haptics from 'haptics';
 import touch from './touch';
 import ui from './ui';
+import settingsStorage from './settings-storage';
+
+import {
+  getFirstDayOfWeek
+} from './settings';
 
 let currentWeek = new Date();
 let weekDiff = 0;
 
 let updateUi = function() {
-  ui.weekNumber = currentWeek.getWeek();
-  ui.weekStart = currentWeek.getWeekStart();
-  ui.weekEnd = currentWeek.getWeekEnd();  
+  let firstDayOfWeek = getFirstDayOfWeek();
+
+  ui.weekNumber = currentWeek.getWeek(firstDayOfWeek);
+  ui.weekStart = currentWeek.getWeekStart(firstDayOfWeek);
+  ui.weekEnd = currentWeek.getWeekEnd(firstDayOfWeek);  
+
   ui.weekDiff = weekDiff;
 };
 
@@ -36,7 +44,7 @@ let onDown = function() {
   }  
 };
 
-let onKeyPress= function(e) {
+let onKeyPress = function(e) {
   if (e.key === 'down') {
     onDown();
   } else if (e.key === 'up') {
@@ -44,8 +52,13 @@ let onKeyPress= function(e) {
   }  
 };
 
+let onSettingsUpdated = function() {
+  updateUi();
+};
+
 document.onkeypress = onKeyPress;
 touch.onFlickUp = onUp;
 touch.onFlickDown = onDown;
+settingsStorage.onUpdated.add(onSettingsUpdated);
 
 updateUi();
