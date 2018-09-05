@@ -35,6 +35,13 @@ module.exports = {
     'quote-props': [
       'error',
       'as-needed'
+    ],
+    'default-case': [
+      'error'
+    ],
+    'object-curly-spacing': [
+      'error',
+      'never'
     ]
   }
 };
