@@ -1,5 +1,5 @@
-import { sendMessage } from './messaging';
-import { settingsStorage } from 'settings';
+import {sendMessage} from './messaging';
+import {settingsStorage} from 'settings';
 
 const FIRST_DAY_OF_WEEK_KEY = 'firstDayOfWeek';
 

@@ -1,6 +1,6 @@
 import messaging from 'messaging';
-import { settingsStorage } from 'settings';
-import { sendSettings } from './settings';
+import {settingsStorage} from 'settings';
+import {sendSettings, setDefaultSettings} from './settings';
 
 settingsStorage.onchange = function() {
   sendSettings();
