@@ -1,19 +1,19 @@
 export class CallbackList {
-  list: ((arg?: any) => any)[];
+  public list: Array<(arg?: any) => any>;
 
   constructor() {
     this.list = [];
   }
 
-  add(callback: () => any) {
-    let index = this.list.indexOf(callback);
+  public add(callback: () => any) {
+    const index = this.list.indexOf(callback);
     if (index === -1) {
       this.list.push(callback);
     }
   }
 
-  remove(callback: () => any) {
-    let index = this.list.indexOf(callback);
+  public remove(callback: () => any) {
+    const index = this.list.indexOf(callback);
     if (index === -1) {
       return;
     }
@@ -21,7 +21,7 @@ export class CallbackList {
     this.list.splice(index, 1);
   }
 
-  invoke(...args: any[]) {
+  public invoke(...args: any[]) {
     this.list.forEach(function(item) {
       item(...args);
     });
