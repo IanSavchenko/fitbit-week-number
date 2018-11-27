@@ -1,3 +1,4 @@
+import '../common';
 import messaging from 'messaging';
 import {settingsStorage} from 'settings';
 import {sendSettings, setDefaultSettings} from './settings';
