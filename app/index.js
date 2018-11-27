@@ -1,4 +1,4 @@
-import '../common/time-utils';
+import '../common';
 import './messaging';
 import document from 'document';
 import haptics from 'haptics';
