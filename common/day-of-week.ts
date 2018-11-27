@@ -5,7 +5,7 @@ enum DayOfWeek {
   Wednesday,
   Thursday,
   Friday,
-  Saturday
-};
+  Saturday,
+}
 
 export default DayOfWeek;

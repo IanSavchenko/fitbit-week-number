@@ -6,9 +6,9 @@ function Settings(props) {
         selectViewTitle={`First day of the week`}
         settingsKey="firstDayOfWeek"
         options={[
-          {name:"Auto", value:"auto"},
-          {name:"Sunday", value:"sunday"},
-          {name:"Monday", value:"monday"}
+          {name: "Auto", value: "auto"},
+          {name: "Sunday", value: "sunday"},
+          {name: "Monday", value: "monday"},
         ]}
       />
       <Text>
