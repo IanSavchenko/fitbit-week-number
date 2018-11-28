@@ -1,4 +1,6 @@
 # "Week Number" for Fitbit 
+[![CircleCI](https://circleci.com/gh/IanSavchenko/fitbit-week-number.svg?style=svg)](https://circleci.com/gh/IanSavchenko/fitbit-week-number)
+
 Small (but yet powerful!) application to show current and past/upcoming week number. 
 
 ![Application icon](/resources/icon.png "Application icon")
@@ -11,10 +13,17 @@ Install the app on your Fitbit Ionic or Fitbit Versa from [Fitbit Gallery](https
 
 ## Development info
 
-This repo is an export from a [Fitbit Studio](https://studio.fitbit.com) project, what is quite limiting,
-because these exports cannot be directly imported back.
-So, there are no external dependencies, linters, bundlers and other JS-world 
-tooling.
+Run `npm install` to install dependencies. On Linux you may also need to [install](https://github.com/atom/node-keytar#on-linux) native deps for `keytar` before that.
+
+Supported commands: 
+
+`npm run build`
+
+`npm run lint`
+
+`npm run test`
+
+To deploy and debug the app on a device or simulator, run `npm run debug` and follow hints of the Fitbit CLI.
 
 ## Links
 
