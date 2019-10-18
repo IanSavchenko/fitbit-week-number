@@ -1,7 +1,7 @@
 import '../common';
 import './messaging';
 import document from 'document';
-import haptics from 'haptics';
+import {vibration} from 'haptics';
 import touch from './touch';
 import ui from './ui';
 import settingsStorage from './settings-storage';
@@ -24,7 +24,7 @@ let updateUi = function() {
 };
 
 let flipWeek = function(diff) {
-  haptics.vibration.start('bump');
+  vibration.start('bump');
   
   currentWeek.setDate(currentWeek.getDate() + 7*diff);
   weekDiff += diff;   
