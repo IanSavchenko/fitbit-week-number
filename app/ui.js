@@ -68,6 +68,14 @@ export default {
       down_triangle.style.display = 'inline';
       canGoDown = true;
     }
+
+    if (value > 9 || value < -9) {
+      week_diff_value.style.fontSize = 25;
+      week_diff_value.x = 0;
+    } else {
+      week_diff_value.style.fontSize = 30;
+      week_diff_value.x = -2;
+    }
   },
   
   
