@@ -49,7 +49,12 @@ let onKeyPress = function(e) {
     onDown();
   } else if (e.key === 'up') {
     onUp();
-  }  
+  } else if (e.key === 'back') {
+    if (weekDiff !== 0) {
+      flipWeek(-weekDiff);
+      e.preventDefault();
+    } 
+  }
 };
 
 let onSettingsUpdated = function() {
