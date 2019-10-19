@@ -1,0 +1,73 @@
+<svg>
+  <defs>
+    <link rel="stylesheet" href="scroll_indicator.css" />
+
+    <symbol id="scroll_indicator_sym">
+        <svg class="si" >
+            <g transform="translate(0,0)">
+              <animateTransform class="t-1 t-1-down" 
+                attributeType="translate" 
+                to="0,-15"
+              />
+
+              <animateTransform class="t-1 t-1-up"
+                attributeType="translate"
+                to="0,15" 
+              />
+
+              <g id="up_group">
+                <circle class="back-circle up2" opacity="0">
+                  <animate class="t-1 t-1-up" 
+                    attributeName="opacity" 
+                    to="0.5"
+                  />
+                </circle>
+                
+                <circle class="back-circle up1">
+                  <animate class="t-2 t-2-down" 
+                    id="a_up"
+                    attributeName="opacity"
+                    to="0"
+                  />
+                </circle>
+              </g>
+
+              <circle class="back-circle middle" />
+
+              <g id="down_group">
+                <circle class="back-circle down1"> 
+                  <animate class="t-2 t-2-up" 
+                    id="a_down"
+                    attributeName="opacity"
+                    to="0" 
+                  />
+                </circle>
+
+                <circle class="back-circle down2" opacity="0">
+                  <animate class="t-1 t-1-down" 
+                    attributeName="opacity"
+                    to="0.5"
+                  />
+                </circle>
+              </g>
+            </g>
+
+            <circle class="front-circle" cy="50%">
+              <animate class="t-0 t-0-down" attributeName="cy"
+                to="50%+15"
+                final="keep" />
+              <animate class="t-1 t-1-down" attributeName="cy"
+                to="50%" 
+                final="keep" />
+
+              <animate class="t-0 t-0-up" attributeName="cy" 
+                to="50%-15" 
+                final="keep" />
+              <animate class="t-1 t-1-up" attributeName="cy"
+                to="50%"
+                final="keep" />
+            </circle>
+        </svg>
+    </symbol>
+  </defs>
+</svg>

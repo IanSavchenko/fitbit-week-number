@@ -7,7 +7,8 @@ import ui from './ui';
 import settingsStorage from './settings-storage';
 
 import {
-  getFirstDayOfWeek
+  getFirstDayOfWeek,
+  MAX_WEEK_DIFF
 } from './settings';
 
 let currentWeek = new Date();
@@ -29,18 +30,20 @@ let flipWeek = function(diff) {
   currentWeek.setDate(currentWeek.getDate() + 7*diff);
   weekDiff += diff;   
   
-  setTimeout(updateUi, 0); 
+  setTimeout(updateUi, 0);
 };
 
 let onUp = function() {  
-  if (weekDiff < 52) {
+  if (weekDiff < MAX_WEEK_DIFF) {
     flipWeek(+1);
+    ui.animateUp();
   }  
 };
 
 let onDown = function() {
-  if (weekDiff > -52) {
+  if (weekDiff > -MAX_WEEK_DIFF) {
     flipWeek(-1);
+    ui.animateDown();
   }  
 };
 

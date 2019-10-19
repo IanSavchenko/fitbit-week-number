@@ -1,0 +1,67 @@
+.si {
+    x: "97%-5";
+    y: "50%-25";
+    width: "10";
+    height: "50";
+}
+
+.si .back-circle {
+    r: 3;
+    cx: "50%";
+    cy: "50%";
+    fill: white;
+    opacity: 0.5;
+}
+.si .up1 {
+    cy: "50%-15";
+}
+.si .up2 {
+    cy: "50%-30";
+}
+.si .down1 {
+    cy: "50%+15";
+}
+.si .down2 {
+    cy: "50%+30";
+}
+
+.si .front-circle {
+    r: 3;
+    cx: "50%";
+    fill: "fb-aqua";
+}
+
+.si .t-0 {
+    dur: "0.4";
+    easing: "ease-out";
+}
+.si .t-0-down {
+    begin: "disable";
+}
+.si .t-0-up {
+    begin: "enable";
+}
+
+.si .t-1 {
+    dur: "0.2";
+    final: "restore";
+    easing: "ease-out";
+}
+.si .t-1-down {
+    begin: "disable+0.5";
+}
+.si .t-1-up {
+    begin: "enable+0.5";
+}
+
+.si .t-2 {
+    dur: "0.1";
+    final: "restore";
+    easing: "ease-in";
+}
+.si .t-2-down {
+    begin: "disable+0.6";
+}
+.si .t-2-up {
+    begin: "enable+0.6";
+}
