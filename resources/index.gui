@@ -64,18 +64,9 @@
           x="100%" y="10" />
   </section>
     
-  
-  <!-- Navigation triangles -->
-  <line id="up_triangle" 
-        x1="100%-10" y1="0%-5" 
-        x2="100%+5" y2="10" 
-        fill="white" stroke-width="10" />
-  <line id="down_triangle" 
-        x1="100%-10" y1="100%+5" 
-        x2="100%+5" y2="100%-10" 
-        fill="white" stroke-width="10" />
-  
-  
+  <use id="scroll_indicator" href="#scroll_indicator_sym">
+  </use>
+      
   <!-- Touch handler -->
   <rect id="touch_handler" width="100%" height="100%" 
         opacity="0"

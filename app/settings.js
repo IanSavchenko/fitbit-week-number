@@ -1,6 +1,8 @@
 import {preferences} from 'user-settings';
 import {readAll} from './settings-storage';
 
+export const MAX_WEEK_DIFF = 52;
+
 export let getFirstDayOfWeek = function() {
   let all = readAll();
   if (!all || !all.firstDayOfWeek || !all.firstDayOfWeek.values) {
@@ -21,5 +23,6 @@ export let getFirstDayOfWeek = function() {
 };
 
 export default {
-  getFirstDayOfWeek
+  getFirstDayOfWeek,
+  MAX_WEEK_DIFF
 };

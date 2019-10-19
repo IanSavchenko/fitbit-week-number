@@ -1,4 +1,5 @@
 import document from 'document';
+import { MAX_WEEK_DIFF } from './settings';
 
 const week_number_first = document.getElementById('week_number_first');
 const week_number_second = document.getElementById('week_number_second');
@@ -12,10 +13,11 @@ const week_end_day_name = document.getElementById('week_end_day_name');
 const week_start_day = document.getElementById('week_start_day');
 const week_end_day = document.getElementById('week_end_day');
 
-const up_triangle = document.getElementById('up_triangle');
-const down_triangle = document.getElementById('down_triangle');
-
 const touch_handler = document.getElementById('touch_handler');
+
+const scroll_indicator = document.getElementById('scroll_indicator');
+const scroll_indicator_up_group = scroll_indicator.getElementById('up_group');
+const scroll_indicator_down_group = scroll_indicator.getElementById('down_group');
 
 // variables to hold state of UI and do fewer UI calls
 // improves visual performance of the app
@@ -26,16 +28,17 @@ let _weekEndDayName;
 let canGoUp = true;
 let canGoDown = true;
 
+const SCROLL_INDICATOR_ANIMATION_DURATION_1 = 500;
+const SCROLL_INDICATOR_ANIMATION_DURATION_2 = 700;
+
 export default {
   touch_handler,
-  
   
   set weekNumber(value) {
     week_number_first.text = parseInt(value / 10, 10);
     week_number_second.text = value % 10;
   },
-  
-  
+    
   set weekDiff(value) {
     if (value > 0) {
       week_diff_value.text = `+${value}`;
@@ -53,19 +56,31 @@ export default {
       weekDiffVisible = true;
     }
     
-    if (value >= 52 && canGoUp) {
-      up_triangle.style.display = 'none';
+    if (value >= MAX_WEEK_DIFF && canGoUp) {
+      setTimeout(function() {
+        scroll_indicator_up_group.style.display = 'none';
+      }, SCROLL_INDICATOR_ANIMATION_DURATION_1);
+
       canGoUp = false;
-    } else if (value < 52 && !canGoUp) {
-      up_triangle.style.display = 'inline';
+    } else if (value < MAX_WEEK_DIFF && !canGoUp) {
+      setTimeout(function() {
+        scroll_indicator_up_group.style.display = 'inline';
+      }, SCROLL_INDICATOR_ANIMATION_DURATION_2);
+
       canGoUp = true;
     }
     
-    if (value <= -52 && canGoDown) {
-      down_triangle.style.display = 'none';
+    if (value <= -MAX_WEEK_DIFF && canGoDown) {
+      setTimeout(function() {
+        scroll_indicator_down_group.style.display = 'none';
+      }, SCROLL_INDICATOR_ANIMATION_DURATION_1);
+
       canGoDown = false;
-    } else if (value > -52 && !canGoDown) {
-      down_triangle.style.display = 'inline';
+    } else if (value > -MAX_WEEK_DIFF && !canGoDown) {
+      setTimeout(function() {
+        scroll_indicator_down_group.style.display = 'inline';
+      }, SCROLL_INDICATOR_ANIMATION_DURATION_2);
+      
       canGoDown = true;
     }
 
@@ -98,5 +113,13 @@ export default {
     }
         
     week_end_day.text = value.toDayString();
+  },
+
+  animateUp() {
+    scroll_indicator.animate("enable");
+  },
+
+  animateDown() {
+    scroll_indicator.animate("disable");
   }
 };
