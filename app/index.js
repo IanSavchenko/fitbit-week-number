@@ -62,8 +62,8 @@ let onSettingsUpdated = function() {
 };
 
 document.onkeypress = onKeyPress;
-touch.onFlickUp = onUp;
-touch.onFlickDown = onDown;
+touch.onFlickLeft = onUp;
+touch.onFlickRight = onDown;
 settingsStorage.onUpdated.add(onSettingsUpdated);
 
 updateUi();

@@ -11,13 +11,13 @@ ui.touch_handler.onmousedown = function(evt) {
 };
 
 ui.touch_handler.onmouseup = function(evt) {
-  if (lastMouseDown.y - evt.screenY > 30) {
-    eventHandlers.onFlickDown();
+  if (lastMouseDown.x - evt.screenX > 30) {
+    eventHandlers.onFlickLeft();
     return;
   }
   
-  if (lastMouseDown.y - evt.screenY < -30) {
-    eventHandlers.onFlickUp();
+  if (lastMouseDown.x - evt.screenX < -30) {
+    eventHandlers.onFlickRight();
     return;
   }
   
@@ -26,8 +26,8 @@ ui.touch_handler.onmouseup = function(evt) {
 };
 
 let eventHandlers = {
-  onFlickUp: function() {},
-  onFlickDown: function() {}
+  onFlickLeft: function() {},
+  onFlickRight: function() {}
 };
 
 export default eventHandlers;
