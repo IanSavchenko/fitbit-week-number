@@ -24,8 +24,8 @@
     gradient-x2="0" gradient-y2="100%-50"
     gradient-color1="#004444" gradient-color2="black" />
   
-  <!-- Central section. Baseline y=45% -->
-  <section x="50%" y="45%">
+  <!-- Central section. -->
+  <section x="50%" y="42%">
     
     <!-- Week diff -->   
     <use id="week_diff" 
@@ -48,7 +48,7 @@
   </section>
   
   <!-- Bottom section. Baseline y=90% -->
-  <section x="5%" y="90%" width="90%">
+  <section x="5%" y="85%" width="90%">
     <!-- Week description. -->
     <text id="week_start_day_name" 
           class="week_start_end_day_name"
@@ -68,8 +68,10 @@
           x="100%" y="10" />
   </section>
     
-  <use id="scroll_indicator" href="#scroll_indicator_sym">
-  </use>
+  <g transform="translate(50%+25, 95%-5) rotate(90)">
+      <use id="scroll_indicator" href="#scroll_indicator_sym">
+      </use>
+  </g>
       
   <!-- Touch handler -->
   <rect id="touch_handler" width="100%" height="100%" 
