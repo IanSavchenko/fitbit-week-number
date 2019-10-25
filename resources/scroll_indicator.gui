@@ -7,12 +7,12 @@
             <g transform="translate(0,0)">
               <animateTransform class="t-1 t-1-down" 
                 attributeType="translate" 
-                to="0,-15"
+                to="0,-20"
               />
 
               <animateTransform class="t-1 t-1-up"
                 attributeType="translate"
-                to="0,15" 
+                to="0,20" 
               />
 
               <g id="up_group">
@@ -54,14 +54,14 @@
 
             <circle class="front-circle" cy="50%">
               <animate class="t-0 t-0-down" attributeName="cy"
-                to="50%+15"
+                to="50%+20"
                 final="keep" />
               <animate class="t-1 t-1-down" attributeName="cy"
                 to="50%" 
                 final="keep" />
 
               <animate class="t-0 t-0-up" attributeName="cy" 
-                to="50%-15" 
+                to="50%-20" 
                 final="keep" />
               <animate class="t-1 t-1-up" attributeName="cy"
                 to="50%"
