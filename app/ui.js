@@ -44,8 +44,6 @@ export default {
       week_diff_value.text = `+${value}`;
     } else if (value < 0) {
       week_diff_value.text = value;
-    } else {
-      week_diff_value.text = '';
     }
     
     if (value === 0 && weekDiffVisible) {
