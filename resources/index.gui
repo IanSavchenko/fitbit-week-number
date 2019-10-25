@@ -9,8 +9,12 @@
       
       <text id="week_diff_value"
           class="week_diff_value"
+          opacity="0"
           x="-2" 
-          y="10" />
+          y="10">
+        <animate attributeName="opacity" begin="enable" to="1" dur="0.25" final="keep" />
+        <animate attributeName="opacity" begin="disable" to="0" dur="0.1" final="keep" />
+      </text>
     </symbol>
   </defs>
 
