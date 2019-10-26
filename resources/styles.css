@@ -1,4 +1,4 @@
-.background {
+.root {
   viewport-fill: fb-black;
 }
 
@@ -8,20 +8,19 @@ text {
 
 .week_diff_value {
   text-anchor: middle; 
-  fill: black;
+  fill: white;
   font-family: Colfax-Regular;
   font-size: 30;
 }
 
 .week_diff_background {
-  fill: fb-aqua;
+  opacity: 0.7;
 }
 
 .week_number_label {
   text-anchor: middle;
   font-size: 30;
   font-family: Colfax-Light;
-  fill: fb-aqua;
 }
 
 .week_number_digit {
@@ -35,7 +34,6 @@ text {
   text-anchor: middle;
   font-size: 30;
   font-family: Colfax-Light;
-  fill: fb-aqua;
 }
 
 .week_start_end_day {
@@ -43,4 +41,8 @@ text {
   font-size: 35;
   font-family: Colfax-Regular;
   fill: white;
+}
+
+.fill-accent {
+  fill: fb-aqua;
 }

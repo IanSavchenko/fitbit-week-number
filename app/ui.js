@@ -1,5 +1,5 @@
 import document from 'document';
-import { MAX_WEEK_DIFF } from './settings';
+import {MAX_WEEK_DIFF} from './settings';
 
 const week_number_first = document.getElementById('week_number_first');
 const week_number_second = document.getElementById('week_number_second');
@@ -19,6 +19,10 @@ const scroll_indicator = document.getElementById('scroll_indicator');
 const scroll_indicator_up_group = scroll_indicator.getElementById('up_group');
 const scroll_indicator_down_group = scroll_indicator.getElementById('down_group');
 
+const background = document.getElementById('background');
+
+const accentFillElements = document.getElementsByClassName('fill-accent');
+
 // variables to hold state of UI and do fewer UI calls
 // improves visual performance of the app
 // especially, when animation is involved
@@ -27,9 +31,40 @@ let _weekStartDayName;
 let _weekEndDayName;
 let canGoUp = true;
 let canGoDown = true;
+let _accentColor = '';
 
 const SCROLL_INDICATOR_ANIMATION_DURATION_1 = 500;
 const SCROLL_INDICATOR_ANIMATION_DURATION_2 = 700;
+
+const _monthColors = [
+  'dodgerblue', // jan
+  'lightskyblue', // feb
+  'fb-aqua', // mar
+  'fb-mint', // apr
+  'fb-lime', // may
+  'salmon', // jun
+  'tomato', // jul
+  'fb-red', // aug
+  'fb-peach', // sep
+  'fb-orange', // oct
+  'orangered', // nov
+  'deepskyblue', // dec
+];
+
+const _updateAccentColor = function(time) {
+  let accentColor = _monthColors[time.getMonth()];
+  if (_accentColor === accentColor) {
+    return;
+  }
+
+  _accentColor = accentColor;
+
+  for (let el of accentFillElements) {
+    el.style.fill = _accentColor;
+  }
+
+  background.gradient.colors.c1 = _accentColor;
+};
 
 export default {
   touch_handler,
@@ -100,8 +135,9 @@ export default {
     }
   
     week_start_day.text = value.toDayString();
+
+    _updateAccentColor(value);
   },
-  
   
   set weekEnd(value) {
     let weekEndDayName = value.toDayNameString();
@@ -114,10 +150,10 @@ export default {
   },
 
   animateUp() {
-    scroll_indicator.animate("enable");
+    scroll_indicator.animate('enable');
   },
 
   animateDown() {
-    scroll_indicator.animate("disable");
+    scroll_indicator.animate('disable');
   }
 };
