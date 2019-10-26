@@ -26,12 +26,13 @@ const accentFillElements = document.getElementsByClassName('fill-accent');
 // variables to hold state of UI and do fewer UI calls
 // improves visual performance of the app
 // especially, when animation is involved
-let weekDiffVisible = false;
+let _weekDiffVisible = false;
 let _weekStartDayName;
 let _weekEndDayName;
-let canGoUp = true;
-let canGoDown = true;
+let _canGoUp = true;
+let _canGoDown = true;
 let _accentColor = '';
+let _weekDiffIsTwoDigit = false;
 
 const SCROLL_INDICATOR_ANIMATION_DURATION_1 = 500;
 const SCROLL_INDICATOR_ANIMATION_DURATION_2 = 700;
@@ -66,6 +67,62 @@ const _updateAccentColor = function(time) {
   background.gradient.colors.c1 = _accentColor;
 };
 
+const _updateWeekDiffFontSize = function(weekDiff) {
+  const isTwoDigit = weekDiff > 9 || weekDiff < -9;
+  if (_weekDiffIsTwoDigit == isTwoDigit) {
+    return;
+  }
+
+  _weekDiffIsTwoDigit = isTwoDigit;
+  if (_weekDiffIsTwoDigit) {
+    week_diff_value.style.fontSize = 25;
+    week_diff_value.x = 0;
+  } else {
+    week_diff_value.style.fontSize = 30;
+    week_diff_value.x = -2;
+  }
+};
+
+const _updateWeekDiffVisibility = function(weekDiff) {
+  if (weekDiff === 0 && _weekDiffVisible) {
+    week_diff.animate('disable');
+    _weekDiffVisible = false;
+  } else if (weekDiff != 0 && !_weekDiffVisible) {
+    week_diff.animate('enable');
+    _weekDiffVisible = true;
+  }
+};
+
+const _updateScrollIndicatorUpDown = function(weekDiff) {
+  if (weekDiff >= MAX_WEEK_DIFF && _canGoUp) {
+    setTimeout(function() {
+      scroll_indicator_up_group.style.display = 'none';
+    }, SCROLL_INDICATOR_ANIMATION_DURATION_1);
+
+    _canGoUp = false;
+  } else if (weekDiff < MAX_WEEK_DIFF && !_canGoUp) {
+    setTimeout(function() {
+      scroll_indicator_up_group.style.display = 'inline';
+    }, SCROLL_INDICATOR_ANIMATION_DURATION_2);
+
+    _canGoUp = true;
+  }
+  
+  if (weekDiff <= -MAX_WEEK_DIFF && _canGoDown) {
+    setTimeout(function() {
+      scroll_indicator_down_group.style.display = 'none';
+    }, SCROLL_INDICATOR_ANIMATION_DURATION_1);
+
+    _canGoDown = false;
+  } else if (weekDiff > -MAX_WEEK_DIFF && !_canGoDown) {
+    setTimeout(function() {
+      scroll_indicator_down_group.style.display = 'inline';
+    }, SCROLL_INDICATOR_ANIMATION_DURATION_2);
+    
+    _canGoDown = true;
+  }
+};
+
 export default {
   touch_handler,
   
@@ -81,54 +138,15 @@ export default {
       week_diff_value.text = value;
     }
     
-    if (value === 0 && weekDiffVisible) {
-      week_diff.animate('disable');
-      weekDiffVisible = false;
-    } else if (value != 0 && !weekDiffVisible) {
-      week_diff.animate('enable');
-      weekDiffVisible = true;
-    }
+    _updateWeekDiffVisibility(value);
     
-    if (value >= MAX_WEEK_DIFF && canGoUp) {
-      setTimeout(function() {
-        scroll_indicator_up_group.style.display = 'none';
-      }, SCROLL_INDICATOR_ANIMATION_DURATION_1);
+    _updateScrollIndicatorUpDown(value);
 
-      canGoUp = false;
-    } else if (value < MAX_WEEK_DIFF && !canGoUp) {
-      setTimeout(function() {
-        scroll_indicator_up_group.style.display = 'inline';
-      }, SCROLL_INDICATOR_ANIMATION_DURATION_2);
-
-      canGoUp = true;
-    }
-    
-    if (value <= -MAX_WEEK_DIFF && canGoDown) {
-      setTimeout(function() {
-        scroll_indicator_down_group.style.display = 'none';
-      }, SCROLL_INDICATOR_ANIMATION_DURATION_1);
-
-      canGoDown = false;
-    } else if (value > -MAX_WEEK_DIFF && !canGoDown) {
-      setTimeout(function() {
-        scroll_indicator_down_group.style.display = 'inline';
-      }, SCROLL_INDICATOR_ANIMATION_DURATION_2);
-      
-      canGoDown = true;
-    }
-
-    if (value > 9 || value < -9) {
-      week_diff_value.style.fontSize = 25;
-      week_diff_value.x = 0;
-    } else {
-      week_diff_value.style.fontSize = 30;
-      week_diff_value.x = -2;
-    }
+    _updateWeekDiffFontSize(value);
   },
-  
-  
+
   set weekStart(value) {
-    let weekStartDayName = value.toDayNameString();
+    const weekStartDayName = value.toDayNameString();
     if (_weekStartDayName !== weekStartDayName) {    
       week_start_day_name.text = weekStartDayName;
       _weekStartDayName = weekStartDayName;
@@ -140,7 +158,7 @@ export default {
   },
   
   set weekEnd(value) {
-    let weekEndDayName = value.toDayNameString();
+    const weekEndDayName = value.toDayNameString();
     if (_weekEndDayName !== weekEndDayName) {
       week_end_day_name.text = weekEndDayName;
       _weekEndDayName = weekEndDayName;
