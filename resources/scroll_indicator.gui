@@ -52,7 +52,7 @@
               </g>
             </g>
 
-            <circle class="front-circle" cy="50%">
+            <circle class="front-circle fill-accent" cy="50%">
               <animate class="t-0 t-0-down" attributeName="cy"
                 to="50%+20"
                 final="keep" />
