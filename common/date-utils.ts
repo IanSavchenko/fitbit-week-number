@@ -53,15 +53,20 @@ Date.prototype.getWeek = function(firstDayOfWeek: DayOfWeek) {
 
 Date.prototype.getWeekStart = function(firstDayOfWeek: DayOfWeek) {
   const weekStart = new Date(this.getFullYear(), this.getMonth(), this.getDate());
-  weekStart.setDate(this.getDate() - (this.getDay() - firstDayOfWeek));
+  let weekStartDaysDiff = this.getDay() - firstDayOfWeek;
+  if (weekStartDaysDiff < 0) {
+    weekStartDaysDiff += 7;
+  }
+
+  weekStart.setDate(this.getDate() - weekStartDaysDiff);
   return weekStart;
 };
 
 Date.prototype.getWeekEnd = function(firstDayOfWeek: DayOfWeek) {
-  const dayMs = 1000 * 60 * 60 * 24;
-
   const weekStart = this.getWeekStart(firstDayOfWeek);
-  return new Date(weekStart.valueOf() + 6 * dayMs);
+  const weekEnd = new Date(weekStart);
+  weekEnd.setDate(weekEnd.getDate() + 6);
+  return weekEnd;
 };
 
 declare global {
