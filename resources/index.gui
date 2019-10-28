@@ -74,6 +74,9 @@
       <use id="scroll_indicator" href="#scroll_indicator_sym">
       </use>
   </g>
+
+  <use id="fake_finger" 
+         href="#fake_finger_sym" />
       
   <!-- Touch handler -->
   <rect id="touch_handler" width="100%" height="100%" 

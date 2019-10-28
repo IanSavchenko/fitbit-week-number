@@ -1,0 +1,71 @@
+<svg>
+  <defs>
+    <link rel="stylesheet" href="fake_finger.css" />
+
+    <symbol id="fake_finger_sym">
+        <circle class="ff_circle" cy="50%">
+            <!-- Move right -->
+            <animate begin="enable"
+                attributeName="cx" 
+                to="20%" 
+                dur="0" final="keep" />
+            <animate begin="enable"
+                attributeName="r" 
+                from="30" to="20" 
+                dur="0.1" final="keep" />
+            <animate begin="enable" 
+                attributeName="opacity" 
+                from="0" to="0.75" 
+                dur="0.1" final="keep" />
+
+            <animate begin="enable+0.4"
+                attributeName="cx"  
+                to="80%" 
+                easing="ease-out-in" 
+                dur="0.2" final="keep" />
+
+            <animate begin="enable+0.7" 
+                attributeName="r" 
+                to="30" 
+                dur="0.15" final="keep" />
+            <animate begin="enable+0.7"
+                attributeName="opacity" 
+                to="0" 
+                dur="0.25" final="keep" />
+
+            <!-- Move left -->
+            <animate begin="disable" 
+                attributeName="cx" 
+                to="80%" 
+                dur="0" final="keep" />
+            <animate begin="disable" 
+                attributeName="r" 
+                from="30" 
+                to="20" 
+                dur="0.1" final="keep" />
+            <animate begin="disable" 
+                attributeName="opacity"
+                from="0" 
+                to="0.75" 
+                dur="0.1" final="keep" />
+
+            <animate begin="disable+0.4" 
+                attributeName="cx" 
+                to="20%"
+                easing="ease-out-in" 
+                dur="0.2" final="keep" />
+
+            <animate begin="disable+0.7" 
+                attributeName="r" 
+                begin="disable+0.7" 
+                to="30" 
+                dur="0.15" final="keep" />
+            <animate begin="disable+0.7" 
+                attributeName="opacity" 
+                begin="disable+0.7" 
+                to="0" 
+                dur="0.25" final="keep" />
+        </circle>
+    </symbol>
+  </defs>
+</svg>
