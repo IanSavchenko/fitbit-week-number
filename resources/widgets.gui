@@ -3,5 +3,6 @@
     <link rel="stylesheet" href="styles.css" />
     <link rel="import" href="/mnt/sysassets/widgets_common.gui" />
     <link rel="import" href="scroll_indicator.gui" />
+    <link rel="import" href="fake_finger.gui" />
   </defs>
 </svg>

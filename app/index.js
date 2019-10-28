@@ -5,6 +5,8 @@ import touch from './touch';
 import ui from './ui';
 import settingsStorage from './settings-storage';
 
+import {runDemo} from './demo';
+
 import {
   getFirstDayOfWeek,
   MAX_WEEK_DIFF
@@ -65,5 +67,7 @@ document.onkeypress = onKeyPress;
 touch.onFlickLeft = onUp;
 touch.onFlickRight = onDown;
 settingsStorage.onUpdated.add(onSettingsUpdated);
+
+// currentWeek = runDemo(); // comment me
 
 updateUi();
