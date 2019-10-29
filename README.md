@@ -9,7 +9,7 @@ Install the app on your Fitbit Ionic or Fitbit Versa from [Fitbit Gallery](https
 
 ## How it looks
 
-![Application GIF](/screenshots/ionic-animated.gif) 
+![Application GIF](/screenshots/animated.gif) 
 
 ## Development info
 
