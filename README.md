@@ -1,5 +1,6 @@
 # "Week Number" for Fitbit 
 [![CircleCI](https://circleci.com/gh/IanSavchenko/fitbit-week-number.svg?style=svg)](https://circleci.com/gh/IanSavchenko/fitbit-week-number)
+![GitHub package.json version](https://img.shields.io/github/package-json/v/IanSavchenko/fitbit-week-number)
 
 Small (but yet powerful!) application to show current and past/upcoming week number. 
 
