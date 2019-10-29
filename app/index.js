@@ -5,7 +5,7 @@ import touch from './touch';
 import ui from './ui';
 import settingsStorage from './settings-storage';
 
-import {runDemo} from './demo';
+// import {runDemo} from './demo';
 
 import {
   getFirstDayOfWeek,
