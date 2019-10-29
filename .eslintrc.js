@@ -12,6 +12,9 @@ module.exports = {
     ecmaVersion: 2017,
     sourceType: 'module'
   },
+  plugins: [
+    'ban'
+  ],
   rules: {
     indent: [
       'error',
@@ -42,6 +45,12 @@ module.exports = {
     'object-curly-spacing': [
       'error',
       'never'
+    ],
+    'ban/ban': [
+      'error', {
+        name: 'runDemo',
+        message: 'should not use demo in prod'
+      }
     ]
   }
 };
